@@ -17,7 +17,6 @@ function Home() {
 
       <div>
         <Head>
-          <NextHeadCount/>
           <title>My Next.js App</title>
           <meta name="description" content="A simple Next.js application" />
         </Head>
