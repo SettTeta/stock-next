@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 
 export default function EmployeePage(props) {
-  const { product: employee } = props;
+  const { employee } = props;
 
   if (!employee) return (<div>Loading...</div>)
   return (
@@ -11,10 +11,16 @@ export default function EmployeePage(props) {
       <Head>
         <title>Employees</title>
       </Head>
-      <h1>{employee.title}</h1>
+      <h1>{employee.first_name} {employee.last_name}</h1>
       <div>
-        <p>${employee.description}</p>
-        <p>${employee.price}</p>
+        <p>{employee.gender}</p>
+        <p>{employee.phone}</p>
+        <p>{employee.job_title}</p>
+        <p>{employee.salary}</p>
+        <p>{employee.email}</p>
+        <p>{employee.age}</p>
+        <p>{employee.years_of_experience}</p>
+        <p>{employee.department}</p>
       </div>
       <Link href="/employee">Back to Employee List</Link>
     </>
