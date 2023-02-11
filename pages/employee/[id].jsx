@@ -31,11 +31,11 @@ export async function getServerSideProps(context) {
   console.log(`Fetching Employee ID: ${context.params['id']}`)
   console.debug(`Fetching ${process.env.APIURL}employee/${context.params['id']}`)
   const ret = await fetch(`${process.env.APIURL}employee/${context.params['id']}`)
-  const employeee = await ret.json()
-  console.log(employeee)
+  const employee = await ret.json()
+  console.log(employee)
   return {
     props: {
-      employeee: employeee
+      employee: employee
     }
   }
 
