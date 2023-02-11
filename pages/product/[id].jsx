@@ -13,8 +13,8 @@ export default function ProductPage(props) {
       </Head>
       <h1>{product.title}</h1>
       <div>
-        <p>${product.description}</p>
-        <p>${product.price}</p>
+        <p>{product.description}</p>
+        <p>{product.price}</p>
       </div>
       <Link href="/product">Back to Product List</Link>
     </>
