@@ -23,6 +23,7 @@ export default function Home({ blogs }) {
         <title>Blogs</title>
       </Head>
       <h1>Blogs</h1>
+      <Link href="/blogs/add">Add +</Link>
       <table><tbody>
         {
           blogs.map(blog => {
@@ -34,6 +35,7 @@ export default function Home({ blogs }) {
                   </Link>
                 </td>
                 <td>
+                  <Link href={`/blogs/update/${blog._id}`}>Update</Link>
                   <button onClick={() => deleteBlog(blog._id)}>Delete</button>
                 </td>
               </tr>
@@ -42,8 +44,8 @@ export default function Home({ blogs }) {
         }
       </tbody>
       </table>
-      <p>
-      </p>
+
+      <Link href={"/"}>Back</Link>
 
     </>
   )

@@ -11,6 +11,8 @@ export default function AboutPage() {
       <h1>Sett Teta</h1>
       <p>Welcome</p>
       <Link href="/about">About</Link>
+      <br />
+      <Link href="/blogs">Blogs</Link>
     </>
   )
 }

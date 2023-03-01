@@ -1,5 +1,4 @@
 import { connect, model, models, Schema } from "mongoose"
-// const connectionString = 'mongodb+srv://user1:2bhEHe22GdtH1idX@cluster0.t27tcax.mongodb.net/blogs'
 const connectionString = process.env.MONGODB_URI
 
 export default async function handler(req, res) {
@@ -23,7 +22,6 @@ export default async function handler(req, res) {
     } else {
         res.setHeader('Allow', ['GET', 'DELETE'])
         res.status(405).end(`Method ${req.method} Not Allowed`)
-
     }
 }
 

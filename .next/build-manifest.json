@@ -29,6 +29,11 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/blogs.js"
+    ],
+    "/blogs/update/[id]": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/blogs/update/[id].js"
     ]
   },
   "ampFirstPages": []
