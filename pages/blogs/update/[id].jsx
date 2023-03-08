@@ -5,16 +5,19 @@ It populates the blog data into the form.
 import Head from "next/head"
 import Link from "next/link"
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 
 
 // Step 2: This component is rendered from the server (Server-Side Rendering) SSR
 export default function Blog({ blog }) {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const [data, setData] = useState("");
 
+  useEffect(() => {
+    reset(blog)
+  }, [])
 
   const updateBlog = async (data) => {
     const response = await fetch(`/api/blogs/articles/${blog._id}`, {
@@ -56,13 +59,13 @@ export default function Blog({ blog }) {
         <title>Update {blog.title}</title>
       </Head>
 
+      <p>{JSON.stringify(blog)}</p>
       <div style={{ margin: '1rem' }}>
         <form onSubmit={handleSubmit(updateBlog)}>
           <h1>Update Blog</h1>
           <label htmlFor="title">Title</label><br />
-          <input id="title" {...register("title", { required: true })} 
-          placeholder="Blog Title" 
-          defaultValue={blog.title}
+          <input id="title" {...register("title", { required: true })}
+            placeholder="Blog Title"
           /><br />
 
           <label htmlFor="category">Category</label>
@@ -70,10 +73,12 @@ export default function Blog({ blog }) {
             <option value="">Select...</option>
             <option value="news">News</option>
             <option value="life">Life</option>
-          </select><br />
+          </select>
+          <br />
+          
           <label htmlFor="content">Content</label><br />
-          <textarea id="text" {...register("content")} placeholder="About you" 
-          defaultValue={blog.content}/><br />
+          <textarea id="text" {...register("content")} placeholder="About you" />
+          <br />
           <input type="submit" />
           <p>{data}</p><br />
         </form>

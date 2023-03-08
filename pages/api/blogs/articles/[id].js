@@ -1,8 +1,8 @@
-import { connect, model, models, Schema } from "mongoose"
-const connectionString = process.env.MONGODB_URI
+import dbConnect from "@/lib/dbConnect"
+import Article from "@/models/Article"
 
 export default async function handler(req, res) {
-    await connect(connectionString);
+    await dbConnect()
     console.log("req.method: ", req.method)
     console.log("req.query.id", req.query.id)
 
@@ -27,10 +27,3 @@ export default async function handler(req, res) {
 
 
 
-const articleSchema = new Schema({
-    title: String,
-    content: String,
-});
-
-console.log("Mongoose Models", models)
-const Article = models?.article || model('article', articleSchema);

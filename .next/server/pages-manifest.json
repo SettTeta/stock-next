@@ -2,7 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/blogs/add": "pages/blogs/add.js",
-  "/blogs/update/[id]": "pages/blogs/update/[id].js",
-  "/blogs": "pages/blogs.js"
+  "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js",
+  "/blogs/update/[id]": "pages/blogs/update/[id].js"
 }
