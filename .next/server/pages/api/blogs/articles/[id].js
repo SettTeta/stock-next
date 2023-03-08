@@ -1,0 +1,76 @@
+"use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+(() => {
+var exports = {};
+exports.id = "pages/api/blogs/articles/[id]";
+exports.ids = ["pages/api/blogs/articles/[id]"];
+exports.modules = {
+
+/***/ "mongoose":
+/*!***************************!*\
+  !*** external "mongoose" ***!
+  \***************************/
+/***/ ((module) => {
+
+module.exports = require("mongoose");
+
+/***/ }),
+
+/***/ "(api)/./node_modules/@swc/helpers/lib/_interop_require_default.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@swc/helpers/lib/_interop_require_default.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+eval("\nObject.defineProperty(exports, \"__esModule\", ({\n    value: true\n}));\nObject.defineProperty(exports, \"default\", ({\n    enumerable: true,\n    get: function() {\n        return _interopRequireDefault;\n    }\n}));\nfunction _interopRequireDefault(obj) {\n    return obj && obj.__esModule ? obj : {\n        default: obj\n    };\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwaSkvLi9ub2RlX21vZHVsZXMvQHN3Yy9oZWxwZXJzL2xpYi9faW50ZXJvcF9yZXF1aXJlX2RlZmF1bHQuanMuanMiLCJtYXBwaW5ncyI6IkFBQWE7QUFDYiw4Q0FBNkM7QUFDN0M7QUFDQSxDQUFDLEVBQUM7QUFDRiwyQ0FBMEM7QUFDMUM7QUFDQTtBQUNBO0FBQ0E7QUFDQSxDQUFDLEVBQUM7QUFDRjtBQUNBO0FBQ0E7QUFDQTtBQUNBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vc3RvY2stbWdtdC1uZXh0Ly4vbm9kZV9tb2R1bGVzL0Bzd2MvaGVscGVycy9saWIvX2ludGVyb3BfcmVxdWlyZV9kZWZhdWx0LmpzP2I4YTgiXSwic291cmNlc0NvbnRlbnQiOlsiXCJ1c2Ugc3RyaWN0XCI7XG5PYmplY3QuZGVmaW5lUHJvcGVydHkoZXhwb3J0cywgXCJfX2VzTW9kdWxlXCIsIHtcbiAgICB2YWx1ZTogdHJ1ZVxufSk7XG5PYmplY3QuZGVmaW5lUHJvcGVydHkoZXhwb3J0cywgXCJkZWZhdWx0XCIsIHtcbiAgICBlbnVtZXJhYmxlOiB0cnVlLFxuICAgIGdldDogZnVuY3Rpb24oKSB7XG4gICAgICAgIHJldHVybiBfaW50ZXJvcFJlcXVpcmVEZWZhdWx0O1xuICAgIH1cbn0pO1xuZnVuY3Rpb24gX2ludGVyb3BSZXF1aXJlRGVmYXVsdChvYmopIHtcbiAgICByZXR1cm4gb2JqICYmIG9iai5fX2VzTW9kdWxlID8gb2JqIDoge1xuICAgICAgICBkZWZhdWx0OiBvYmpcbiAgICB9O1xufVxuIl0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(api)/./node_modules/@swc/helpers/lib/_interop_require_default.js\n");
+
+/***/ }),
+
+/***/ "(api)/./lib/dbConnect.js":
+/*!**************************!*\
+  !*** ./lib/dbConnect.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mongoose */ \"mongoose\");\n/* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(mongoose__WEBPACK_IMPORTED_MODULE_0__);\n\n/** \nSource : \n**/ const MONGODB_URI = process.env.MONGODB_URI;\nif (!MONGODB_URI) {\n    throw new Error(\"Please define the MONGODB_URI environment variable inside .env.local\");\n}\n/**\n * Global is used here to maintain a cached connection across hot reloads\n * in development. This prevents connections growing exponentially\n * during API Route usage.\n */ let cached = global.mongoose;\nif (!cached) {\n    cached = global.mongoose = {\n        conn: null,\n        promise: null\n    };\n}\nasync function dbConnect() {\n    if (cached.conn) {\n        return cached.conn;\n    }\n    if (!cached.promise) {\n        const opts = {\n            useNewUrlParser: true,\n            useUnifiedTopology: true,\n            bufferCommands: false\n        };\n        cached.promise = mongoose__WEBPACK_IMPORTED_MODULE_0___default().connect(MONGODB_URI, opts).then((mongoose)=>{\n            return mongoose;\n        });\n    }\n    cached.conn = await cached.promise;\n    return cached.conn;\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (dbConnect);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwaSkvLi9saWIvZGJDb25uZWN0LmpzLmpzIiwibWFwcGluZ3MiOiI7Ozs7OztBQUErQjtBQUUvQjs7Q0FFQyxHQUdELE1BQU1DLGNBQWNDLFFBQVFDLEdBQUcsQ0FBQ0YsV0FBVztBQUUzQyxJQUFJLENBQUNBLGFBQWE7SUFDaEIsTUFBTSxJQUFJRyxNQUNSLHdFQUNEO0FBQ0gsQ0FBQztBQUVEOzs7O0NBSUMsR0FDRCxJQUFJQyxTQUFTQyxPQUFPTixRQUFRO0FBRTVCLElBQUksQ0FBQ0ssUUFBUTtJQUNYQSxTQUFTQyxPQUFPTixRQUFRLEdBQUc7UUFBRU8sTUFBTSxJQUFJO1FBQUVDLFNBQVMsSUFBSTtJQUFDO0FBQ3pELENBQUM7QUFFRCxlQUFlQyxZQUFhO0lBQzFCLElBQUlKLE9BQU9FLElBQUksRUFBRTtRQUNmLE9BQU9GLE9BQU9FLElBQUk7SUFDcEIsQ0FBQztJQUVELElBQUksQ0FBQ0YsT0FBT0csT0FBTyxFQUFFO1FBQ25CLE1BQU1FLE9BQU87WUFDWEMsaUJBQWlCLElBQUk7WUFDckJDLG9CQUFvQixJQUFJO1lBQ3hCQyxnQkFBZ0IsS0FBSztRQUl2QjtRQUVBUixPQUFPRyxPQUFPLEdBQUdSLHVEQUFnQixDQUFDQyxhQUFhUyxNQUFNSyxJQUFJLENBQUNmLENBQUFBLFdBQVk7WUFDcEUsT0FBT0E7UUFDVDtJQUNGLENBQUM7SUFDREssT0FBT0UsSUFBSSxHQUFHLE1BQU1GLE9BQU9HLE9BQU87SUFDbEMsT0FBT0gsT0FBT0UsSUFBSTtBQUNwQjtBQUVBLGlFQUFlRSxTQUFTQSxFQUFBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vc3RvY2stbWdtdC1uZXh0Ly4vbGliL2RiQ29ubmVjdC5qcz8xZDNiIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBtb25nb29zZSBmcm9tICdtb25nb29zZSdcblxuLyoqIFxuU291cmNlIDogXG4qKi9cblxuXG5jb25zdCBNT05HT0RCX1VSSSA9IHByb2Nlc3MuZW52Lk1PTkdPREJfVVJJXG5cbmlmICghTU9OR09EQl9VUkkpIHtcbiAgdGhyb3cgbmV3IEVycm9yKFxuICAgICdQbGVhc2UgZGVmaW5lIHRoZSBNT05HT0RCX1VSSSBlbnZpcm9ubWVudCB2YXJpYWJsZSBpbnNpZGUgLmVudi5sb2NhbCdcbiAgKVxufVxuXG4vKipcbiAqIEdsb2JhbCBpcyB1c2VkIGhlcmUgdG8gbWFpbnRhaW4gYSBjYWNoZWQgY29ubmVjdGlvbiBhY3Jvc3MgaG90IHJlbG9hZHNcbiAqIGluIGRldmVsb3BtZW50LiBUaGlzIHByZXZlbnRzIGNvbm5lY3Rpb25zIGdyb3dpbmcgZXhwb25lbnRpYWxseVxuICogZHVyaW5nIEFQSSBSb3V0ZSB1c2FnZS5cbiAqL1xubGV0IGNhY2hlZCA9IGdsb2JhbC5tb25nb29zZVxuXG5pZiAoIWNhY2hlZCkge1xuICBjYWNoZWQgPSBnbG9iYWwubW9uZ29vc2UgPSB7IGNvbm46IG51bGwsIHByb21pc2U6IG51bGwgfVxufVxuXG5hc3luYyBmdW5jdGlvbiBkYkNvbm5lY3QgKCkge1xuICBpZiAoY2FjaGVkLmNvbm4pIHtcbiAgICByZXR1cm4gY2FjaGVkLmNvbm5cbiAgfVxuXG4gIGlmICghY2FjaGVkLnByb21pc2UpIHtcbiAgICBjb25zdCBvcHRzID0ge1xuICAgICAgdXNlTmV3VXJsUGFyc2VyOiB0cnVlLFxuICAgICAgdXNlVW5pZmllZFRvcG9sb2d5OiB0cnVlLFxuICAgICAgYnVmZmVyQ29tbWFuZHM6IGZhbHNlLFxuICAgICAgLy8gYnVmZmVyTWF4RW50cmllczogMCxcbiAgICAgIC8vIHVzZUZpbmRBbmRNb2RpZnk6IHRydWUsXG4gICAgICAvLyB1c2VDcmVhdGVJbmRleDogdHJ1ZVxuICAgIH1cblxuICAgIGNhY2hlZC5wcm9taXNlID0gbW9uZ29vc2UuY29ubmVjdChNT05HT0RCX1VSSSwgb3B0cykudGhlbihtb25nb29zZSA9PiB7XG4gICAgICByZXR1cm4gbW9uZ29vc2VcbiAgICB9KVxuICB9XG4gIGNhY2hlZC5jb25uID0gYXdhaXQgY2FjaGVkLnByb21pc2VcbiAgcmV0dXJuIGNhY2hlZC5jb25uXG59XG5cbmV4cG9ydCBkZWZhdWx0IGRiQ29ubmVjdCJdLCJuYW1lcyI6WyJtb25nb29zZSIsIk1PTkdPREJfVVJJIiwicHJvY2VzcyIsImVudiIsIkVycm9yIiwiY2FjaGVkIiwiZ2xvYmFsIiwiY29ubiIsInByb21pc2UiLCJkYkNvbm5lY3QiLCJvcHRzIiwidXNlTmV3VXJsUGFyc2VyIiwidXNlVW5pZmllZFRvcG9sb2d5IiwiYnVmZmVyQ29tbWFuZHMiLCJjb25uZWN0IiwidGhlbiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///(api)/./lib/dbConnect.js\n");
+
+/***/ }),
+
+/***/ "(api)/./models/Article.js":
+/*!***************************!*\
+  !*** ./models/Article.js ***!
+  \***************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+eval("\nObject.defineProperty(exports, \"__esModule\", ({\n    value: true\n}));\nconst _interopRequireDefault = (__webpack_require__(/*! @swc/helpers/lib/_interop_require_default.js */ \"(api)/./node_modules/@swc/helpers/lib/_interop_require_default.js\")[\"default\"]);\nconst _mongoose = /*#__PURE__*/ _interopRequireDefault(__webpack_require__(/*! mongoose */ \"mongoose\"));\nconst articleSchema = new _mongoose.default.Schema({\n    title: String,\n    content: String,\n    category: String\n}, {\n    strict: false\n});\nmodule.exports = _mongoose.default.models.article || _mongoose.default.model(\"article\", articleSchema);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwaSkvLi9tb2RlbHMvQXJ0aWNsZS5qcy5qcyIsIm1hcHBpbmdzIjoiOzs7OzsyRUFBcUIsMEJBQVU7QUFFL0IsTUFBTUEsZ0JBQWdCLElBQUlDLGlCQUFRLENBQUNDLE1BQU0sQ0FDdkM7SUFDRUMsT0FBT0M7SUFDUEMsU0FBU0Q7SUFDVEUsVUFBVUY7QUFDWixHQUNBO0lBQUVHLFFBQVEsS0FBSztBQUFDO0FBR2xCQyxPQUFPQyxPQUFPLEdBQUdSLGlCQUFRLENBQUNTLE1BQU0sQ0FBQ0MsT0FBTyxJQUFJVixpQkFBUSxDQUFDVyxLQUFLLENBQUMsV0FBV1oiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zdG9jay1tZ210LW5leHQvLi9tb2RlbHMvQXJ0aWNsZS5qcz81MmQ3Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBtb25nb29zZSBmcm9tIFwibW9uZ29vc2VcIjtcblxuY29uc3QgYXJ0aWNsZVNjaGVtYSA9IG5ldyBtb25nb29zZS5TY2hlbWEoXG4gIHtcbiAgICB0aXRsZTogU3RyaW5nLFxuICAgIGNvbnRlbnQ6IFN0cmluZyxcbiAgICBjYXRlZ29yeTogU3RyaW5nLFxuICB9LFxuICB7IHN0cmljdDogZmFsc2UgfVxuKTtcblxubW9kdWxlLmV4cG9ydHMgPSBtb25nb29zZS5tb2RlbHMuYXJ0aWNsZSB8fCBtb25nb29zZS5tb2RlbChcImFydGljbGVcIiwgYXJ0aWNsZVNjaGVtYSk7XG4iXSwibmFtZXMiOlsiYXJ0aWNsZVNjaGVtYSIsIm1vbmdvb3NlIiwiU2NoZW1hIiwidGl0bGUiLCJTdHJpbmciLCJjb250ZW50IiwiY2F0ZWdvcnkiLCJzdHJpY3QiLCJtb2R1bGUiLCJleHBvcnRzIiwibW9kZWxzIiwiYXJ0aWNsZSIsIm1vZGVsIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(api)/./models/Article.js\n");
+
+/***/ }),
+
+/***/ "(api)/./pages/api/blogs/articles/[id].js":
+/*!******************************************!*\
+  !*** ./pages/api/blogs/articles/[id].js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ handler)\n/* harmony export */ });\n/* harmony import */ var _lib_dbConnect__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/lib/dbConnect */ \"(api)/./lib/dbConnect.js\");\n/* harmony import */ var _models_Article__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/models/Article */ \"(api)/./models/Article.js\");\n/* harmony import */ var _models_Article__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_models_Article__WEBPACK_IMPORTED_MODULE_1__);\n\n\nasync function handler(req, res) {\n    await (0,_lib_dbConnect__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n    console.log(\"req.method: \", req.method);\n    console.log(\"req.query.id\", req.query.id);\n    const id = req.query.id;\n    if (req.method === \"GET\") {\n        // Get only one document\n        const doc = await _models_Article__WEBPACK_IMPORTED_MODULE_1___default().findOne({\n            _id: id\n        });\n        res.status(200).json(doc);\n    } else if (req.method === \"DELETE\") {\n        const deletedDoc = await _models_Article__WEBPACK_IMPORTED_MODULE_1___default().deleteOne({\n            _id: id\n        });\n        res.status(200).json(deletedDoc);\n    } else if (req.method === \"PUT\") {\n        console.log(\"id\", req.query.id);\n        console.log(req.body);\n        const updatedDoc = await _models_Article__WEBPACK_IMPORTED_MODULE_1___default().updateOne({\n            _id: id\n        }, req.body);\n        res.status(200).json(updatedDoc);\n    } else {\n        res.setHeader(\"Allow\", [\n            \"GET\",\n            \"DELETE\"\n        ]);\n        res.status(405).end(`Method ${req.method} Not Allowed`);\n    }\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwaSkvLi9wYWdlcy9hcGkvYmxvZ3MvYXJ0aWNsZXMvW2lkXS5qcy5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7O0FBQXVDO0FBQ0Q7QUFFdkIsZUFBZUUsUUFBUUMsR0FBRyxFQUFFQyxHQUFHLEVBQUU7SUFDNUMsTUFBTUosMERBQVNBO0lBQ2ZLLFFBQVFDLEdBQUcsQ0FBQyxnQkFBZ0JILElBQUlJLE1BQU07SUFDdENGLFFBQVFDLEdBQUcsQ0FBQyxnQkFBZ0JILElBQUlLLEtBQUssQ0FBQ0MsRUFBRTtJQUV4QyxNQUFNQSxLQUFLTixJQUFJSyxLQUFLLENBQUNDLEVBQUU7SUFDdkIsSUFBSU4sSUFBSUksTUFBTSxLQUFLLE9BQU87UUFDdEIsd0JBQXdCO1FBQ3hCLE1BQU1HLE1BQU0sTUFBTVQsOERBQWUsQ0FBQztZQUFFVyxLQUFLSDtRQUFHO1FBQzVDTCxJQUFJUyxNQUFNLENBQUMsS0FBS0MsSUFBSSxDQUFDSjtJQUN6QixPQUFPLElBQUlQLElBQUlJLE1BQU0sS0FBSyxVQUFVO1FBQ2hDLE1BQU1RLGFBQWEsTUFBTWQsZ0VBQWlCLENBQUM7WUFBRVcsS0FBS0g7UUFBRztRQUNyREwsSUFBSVMsTUFBTSxDQUFDLEtBQUtDLElBQUksQ0FBQ0M7SUFDekIsT0FBTyxJQUFJWixJQUFJSSxNQUFNLEtBQUssT0FBTztRQUM3QkYsUUFBUUMsR0FBRyxDQUFDLE1BQUtILElBQUlLLEtBQUssQ0FBQ0MsRUFBRTtRQUM3QkosUUFBUUMsR0FBRyxDQUFDSCxJQUFJYyxJQUFJO1FBQ3BCLE1BQU1DLGFBQWEsTUFBTWpCLGdFQUFpQixDQUFDO1lBQUNXLEtBQUtIO1FBQUUsR0FBR04sSUFBSWMsSUFBSTtRQUM5RGIsSUFBSVMsTUFBTSxDQUFDLEtBQUtDLElBQUksQ0FBQ0k7SUFDekIsT0FBTztRQUNIZCxJQUFJZ0IsU0FBUyxDQUFDLFNBQVM7WUFBQztZQUFPO1NBQVM7UUFDeENoQixJQUFJUyxNQUFNLENBQUMsS0FBS1EsR0FBRyxDQUFDLENBQUMsT0FBTyxFQUFFbEIsSUFBSUksTUFBTSxDQUFDLFlBQVksQ0FBQztJQUMxRCxDQUFDO0FBQ0wsQ0FBQyIsInNvdXJjZXMiOlsid2VicGFjazovL3N0b2NrLW1nbXQtbmV4dC8uL3BhZ2VzL2FwaS9ibG9ncy9hcnRpY2xlcy9baWRdLmpzPzUyOTQiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IGRiQ29ubmVjdCBmcm9tIFwiQC9saWIvZGJDb25uZWN0XCJcbmltcG9ydCBBcnRpY2xlIGZyb20gXCJAL21vZGVscy9BcnRpY2xlXCJcblxuZXhwb3J0IGRlZmF1bHQgYXN5bmMgZnVuY3Rpb24gaGFuZGxlcihyZXEsIHJlcykge1xuICAgIGF3YWl0IGRiQ29ubmVjdCgpXG4gICAgY29uc29sZS5sb2coXCJyZXEubWV0aG9kOiBcIiwgcmVxLm1ldGhvZClcbiAgICBjb25zb2xlLmxvZyhcInJlcS5xdWVyeS5pZFwiLCByZXEucXVlcnkuaWQpXG5cbiAgICBjb25zdCBpZCA9IHJlcS5xdWVyeS5pZFxuICAgIGlmIChyZXEubWV0aG9kID09PSAnR0VUJykge1xuICAgICAgICAvLyBHZXQgb25seSBvbmUgZG9jdW1lbnRcbiAgICAgICAgY29uc3QgZG9jID0gYXdhaXQgQXJ0aWNsZS5maW5kT25lKHsgX2lkOiBpZCB9KVxuICAgICAgICByZXMuc3RhdHVzKDIwMCkuanNvbihkb2MpXG4gICAgfSBlbHNlIGlmIChyZXEubWV0aG9kID09PSAnREVMRVRFJykge1xuICAgICAgICBjb25zdCBkZWxldGVkRG9jID0gYXdhaXQgQXJ0aWNsZS5kZWxldGVPbmUoeyBfaWQ6IGlkIH0pXG4gICAgICAgIHJlcy5zdGF0dXMoMjAwKS5qc29uKGRlbGV0ZWREb2MpXG4gICAgfSBlbHNlIGlmIChyZXEubWV0aG9kID09PSAnUFVUJykge1xuICAgICAgICBjb25zb2xlLmxvZygnaWQnLHJlcS5xdWVyeS5pZClcbiAgICAgICAgY29uc29sZS5sb2cocmVxLmJvZHkpXG4gICAgICAgIGNvbnN0IHVwZGF0ZWREb2MgPSBhd2FpdCBBcnRpY2xlLnVwZGF0ZU9uZSh7X2lkOiBpZH0sIHJlcS5ib2R5KVxuICAgICAgICByZXMuc3RhdHVzKDIwMCkuanNvbih1cGRhdGVkRG9jKVxuICAgIH0gZWxzZSB7XG4gICAgICAgIHJlcy5zZXRIZWFkZXIoJ0FsbG93JywgWydHRVQnLCAnREVMRVRFJ10pXG4gICAgICAgIHJlcy5zdGF0dXMoNDA1KS5lbmQoYE1ldGhvZCAke3JlcS5tZXRob2R9IE5vdCBBbGxvd2VkYClcbiAgICB9XG59XG5cblxuXG4iXSwibmFtZXMiOlsiZGJDb25uZWN0IiwiQXJ0aWNsZSIsImhhbmRsZXIiLCJyZXEiLCJyZXMiLCJjb25zb2xlIiwibG9nIiwibWV0aG9kIiwicXVlcnkiLCJpZCIsImRvYyIsImZpbmRPbmUiLCJfaWQiLCJzdGF0dXMiLCJqc29uIiwiZGVsZXRlZERvYyIsImRlbGV0ZU9uZSIsImJvZHkiLCJ1cGRhdGVkRG9jIiwidXBkYXRlT25lIiwic2V0SGVhZGVyIiwiZW5kIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(api)/./pages/api/blogs/articles/[id].js\n");
+
+/***/ })
+
+};
+;
+
+// load runtime
+var __webpack_require__ = require("../../../../webpack-api-runtime.js");
+__webpack_require__.C(exports);
+var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+var __webpack_exports__ = (__webpack_exec__("(api)/./pages/api/blogs/articles/[id].js"));
+module.exports = __webpack_exports__;
+
+})();
